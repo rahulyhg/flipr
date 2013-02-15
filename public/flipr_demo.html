@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+	<meta charset="utf-8" />
+	<title>Flipr: An iPhone-like Flip Effect</title>
+
+	<meta name="author"      content="Mayank B. Patel" />
+	<meta name="description" content="A card flip effect using CSS3 tranformations and unobtrusive Javascript.">
+	<meta name="keywords"    content="" />
+
+  <meta name="viewport" content="width=device-width" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+
+  <!-- JQUERY -->
+	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+
+
+  <!-- Foundation -->
+  <link rel="stylesheet" href="vendor/foundation-3.0.7/stylesheets/foundation.css">
+  <link rel="stylesheet" href="vendor/foundation-3.0.7/stylesheets/app.css">
+  <script src="vendor/foundation-3.0.7/javascripts/foundation.js"></script>
+
+
+  <!-- IE Fix for HTML5 Tags -->
+  <!--[if lt IE 9]>
+    <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+  <!-- __Foundation__ -->
+
+  <!-- flipr_effect -->
+  <link rel="stylesheet"  href="css/flipr.css" />
+	<script type="text/javascript" src="js/flipr.js"></script>
+  <!-- __flipr_effect__ -->
+
+  <link rel="stylesheet"  href="css/flipr_demo.css" />
+</head>
+
+<body class="no_highlight">
+
+  <a href="https://github.com/mayankbpatel/flipr">
+    <img style="position: absolute; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_red_aa0000.png" alt="Fork me on GitHub">
+  </a>
+
+  <header id="title">
+    <h1>Flipr: Unobtrusive Flip Effect Using CSS3 Transforms</h1>
+  </header>
+
+  <section id="flip_on_click_demo">
+    <div id="bicycle_ghost_card" data-flipr-container>
+      <div id="bicycle_card_front" data-flipr-front></div>
+      <div id="bicycle_card_back"  data-flipr-back></div>
+    </div>
+
+    <button id="flip_card_button" data-flip-on-click="#bicycle_ghost_card">Click to Flip</button>
+  </section>
+
+  <section id="flip_on_hover_demo">
+    <div class="row">
+      <div class="eight columns centered">
+        <p id="hover_to_flip_message">
+          - or hover over to flip -
+        <p>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="eight columns centered">
+        <div class="hover_card" data-flipr-container data-flip-on-hover>
+          <div id="hover_card_one_front" data-flipr-front>
+            <div id="hover_card_one_text">
+               <hr /> Cat Daddy <hr />
+            </div>
+          </div>
+          <div id="hover_card_one_back"  data-flipr-back>
+            <iframe width="600" height="338" src="http://www.youtube-nocookie.com/embed/MCUnWIs88CQ?rel=0" frameborder="0"></iframe>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <section id="flip_on_click_usage">
+    <div class="row">
+      <div class="twelve columns">
+        <h3>Flip on Click</h3>
+        <p>
+          Here is the necessary markup:
+        </p>
+        <script src="https://gist.github.com/mayankbpatel/4949927.js"></script>
+        <p>
+          The outer div contains the
+          <span class="highlight_dark_bg">flipr-container</span>
+          data-attribute and can be styled to suit your specific
+          application needs.
+        </p>
+        <p>
+          Each side of the card is marked with the respective 
+          data-attributes:
+          <span class="highlight_dark_bg">flipr-front</span> or
+          <span class="highlight_dark_bg">flipr-back</span>.
+        </p>
+        <p>
+          Both cards can be given IDs, classes, styled independently and 
+          declared in any order.
+        </p>
+        <p>
+          To activate a flip action on a click, just attach the 
+          <span class="highlight_dark_bg">flip-on-click</span> data-attribute
+          to an element such as a button and provide a valid jquery selector
+          that resolves to the target
+          <span class="highlight_dark_bg">flipr-container</span>:
+        </p>
+        <script src="https://gist.github.com/mayankbpatel/4962410.js"></script>
+      </div>
+    </div>
+  </section>
+
+  <section id="flip_on_hover_usage">
+    <div class="row">
+      <div class="twelve columns">
+        <h3>Flip on Hover</h3>
+        <p>
+          To flip on hover, just add the data-attribute:
+          <span class="highlight_dark_bg">flip-on-hover</span>
+          to the flipr container: 
+        </p> 
+        <script src="https://gist.github.com/mayankbpatel/4962469.js"></script>
+      </div>
+    </div>
+  </section>
+
+  <section id="javascript_incantation">
+    <div class="row">
+      <div class="twelve columns">
+        <h3>Javascript Incantation</h3>
+        <p>
+          To enable the flip effect, you will need a sprinkle of 
+          javascript.
+        </p>
+        <p>
+          In the document loader callback create a new instance of 
+          <span class="highlight_light_bg">Flipr.Effect</span>
+          and invoke
+          <span class="highlight_light_bg">applyTo</span>
+          with a jquery DOM selector as an argument:
+        </p>
+        <script src="https://gist.github.com/mayankbpatel/4949991.js"></script>
+        <p>
+          The good news is that 
+          <span class="highlight_light_bg">applyTo</span>
+          is idempotent, which means that you can repeatedly 
+          invoke it in a handler function against dynamic DOM
+          elements without worry of side-effects!
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section id="license_and_credits">
+    <div class="row">
+      <div class="twelve columns">
+        <h3>License</h3>
+        <p>
+          This work consists of a stylesheet file:
+          <span class="highlight_light_bg">flipr.css</span>
+          and a CoffeeScript file
+          <span class="highlight_light_bg">flipr.coffee</span>.
+        </p>
+        <p>
+          If you don't have access to a CoffeeScript compiler feel
+          free to use the compiled javascript file:
+          <span class="highlight_light_bg">flipr.js</span>
+        </p>
+        <p>
+          All 3 files are being released under the <a href="http://opensource.org/licenses/mit-license.php/">MIT License</a>.
+        </p>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="twelve columns">
+        <h3>Download</h3>
+        <p>
+        The source files can be downloaded from
+        <a href="https://github.com/mayankbpatel/flipr">GitHub</a>
+        from the releases subdirectory.
+        </p>
+      </div>
+    </div>
+      
+    <div class="row">
+      <div class="twelve columns">
+        <h3>Credits</h3>
+        <p>
+        Many thanks to David Desandro.  This work drew heavily from his 
+        <a href="http://desandro.github.com/3dtransforms/">explanations</a>
+        of CSS3 3D transforms.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <p>
+      Copyright &copy 2013 Mayank B. Patel.  All Rights Reserved.
+    </p>
+  </footer>
+
+  <script type="text/javascript">
+    $(document).ready(function() {
+      var flipr = new Flipr.Effect();
+
+      // It's idempotent so don't worry about repeatedly applying
+      // it to the same region.  This is especially handy when
+      // you need to apply it to dynamic DOM elements.
+      flipr.applyTo('body');
+      flipr.applyTo('body');
+      flipr.applyTo('body');
+    });
+  </script>
+
+</body>
+
+</html>

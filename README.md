@@ -1,4 +1,4 @@
-# iPhone Flip Effect using Unobtrusive Javascript with CSS3 Transforms
+## iPhone Flip Effect using Unobtrusive Javascript with CSS3 Transforms
 
 ### Demo
 

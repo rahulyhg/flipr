@@ -3,7 +3,7 @@
 ### Demo
 
 To see flipr in action visit the [demo](http://mayankbpatel-flipr.herokuapp.com/flipr_demo.html) site
-or download this repo and run the sinatra application: rackup config.ru
+or download this repo and run the sinatra application: **rackup config.ru**
 
 
 ### Flip on Click

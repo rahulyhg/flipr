@@ -1,7 +1,7 @@
-require 'sinatra/base'
+require 'sinatra'
 
-module Flipr
-  class Demo < Sinatra::Base
-    set :public_folder, 'public'
-  end
+set :public_folder, 'public'
+
+get '/' do
+  redirect "/flipr_demo.html"
 end
